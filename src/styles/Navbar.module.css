@@ -1,0 +1,218 @@
+/* Navbar.module.css */
+
+/* Navbar Base */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%; /* FIXED from 100vw */
+  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, #cdcccd, #606262);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  color: #fff;
+  margin: 0;
+}
+
+.navbar.scrolled {
+  padding: 0.4rem 1rem;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden; /* Prevent side scroll */
+}
+
+/* Logo & Brand */
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoLeft {
+  height: 45px;
+  background: aliceblue;
+  border-radius: 25px;
+  margin-right: 8px;
+  transition: height 0.3s ease;
+}
+
+.navbar.scrolled .logoLeft {
+  height: 40px;
+}
+
+.brandName {
+  font-weight: bold;
+  font-size: 20px;
+  color: #3f3e3e;
+  white-space: nowrap;
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.navbar.scrolled .brandName {
+  color: #3f3e3e;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1100;
+}
+
+.hamburgerIcon {
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.4rem 0;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  color: #1e90ff;
+}
+
+.navLink.active {
+  color: #1e90ff;
+  font-weight: 600;
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1e90ff;
+}
+
+/* Scrolled Nav Link */
+.navLinkScrolled {
+  color: #f5f9f9;
+}
+
+/* Dark Theme Nav Link */
+.navLinkDark {
+  color: #000;
+}
+
+/* Responsive Navbar */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .brandName {
+    font-size: 18px;
+  }
+
+  .logoLeft {
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Navbar initially below header */
+  .navbar {
+    position: sticky; /* sticky instead of fixed */
+    top: 0;           /* sticks to top after scrolling */
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    background: linear-gradient(90deg, #cdcccd, #606262); /* solid background */
+    z-index: 1000; /* above other content */
+  }
+
+  .logoLeft {
+    height: 35px;
+  }
+
+  .brandName {
+    font-size: 16px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Push content below header + navbar naturally */
+  .pageWrapper,
+  .aboutSection {
+    margin-top: 0; /* no forced margin */
+  }
+
+  /* Mobile Nav Links Overlay */
+  .navLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, #cdcccd, #606262);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 999;
+    padding: 4rem 1rem 1rem;
+    overflow-x: hidden;
+  }
+
+  .navLinks.show {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navLink {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #1e90ff;
+  }
+
+  .navLink.active::after {
+    width: 50%;
+    left: 25%;
+    bottom: 4px;
+    background-color: #0d47a1;
+  }
+}
