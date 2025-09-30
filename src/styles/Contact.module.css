@@ -1,15 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+html, body {
+width: 100%;
+overflow-x: hidden;
+}
+
 .contactSection {
 font-family: 'Poppins', sans-serif;
 padding: 60px 20px;
 background: #e8edf6;
 color: #333;
 width: 100%;
+max-width: 100%;
 }
 
 .contactWrapper {
 max-width: 1200px; /* Keeps layout consistent on desktop */
 margin: 0 auto;    /* Centers content */
 width: 100%;       /* Ensures full width on mobile */
+overflow-x: hidden;
 }
 
 .header {
@@ -35,6 +48,7 @@ display: flex;
 gap: 40px;
 flex-wrap: wrap;
 justify-content: space-between;
+width: 100%;
 }
 
 .form {
@@ -52,6 +66,7 @@ border: 1px solid #ccc;
 border-radius: 8px;
 font-size: 1rem;
 resize: none;
+width: 100%;
 }
 
 .form button {
@@ -63,6 +78,7 @@ border: none;
 border-radius: 8px;
 cursor: pointer;
 transition: background 0.3s;
+width: 100%;
 }
 
 .form button:hover {
@@ -93,12 +109,14 @@ margin-top: 20px;
 border-radius: 10px;
 overflow: hidden;
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+width: 100%;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
 .contactWrapper {
-padding: 0 10px; /* keep safe spacing on small screens */
+padding: 0 10px; /* safe spacing on small screens */
+max-width: 100%;
 }
 
 .contactContent {
