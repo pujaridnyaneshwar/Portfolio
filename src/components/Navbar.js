@@ -85,6 +85,7 @@ const Navbar = () => {
             { to: 'project', name: 'Project' },
             { to: 'blog', name: 'Blogs' },
             { to: 'contact', name: 'Contact' },
+            {to: 'resume', name: 'Resume' },
           ].map((item) => (
             <ScrollLink
               key={item.to}
